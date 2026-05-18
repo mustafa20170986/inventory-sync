@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { CrudModule } from './books/crud/crud.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { LibuserModule } from './libuser/libuser.module';
+import { BorrowbookModule } from './borrowbook/borrowbook.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,6 +19,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
     CrudModule,
+    LibuserModule,
+    BorrowbookModule,
   ],
   controllers: [AppController],
   providers: [AppService],

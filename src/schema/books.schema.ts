@@ -9,5 +9,7 @@ export class bookSchema extends Document {
   author!: string;
   @Prop({ required: true })
   pages!: number;
+  @Prop({ required: true })
+  instock!: number;
 }
 export const bookModel = SchemaFactory.createForClass(bookSchema);

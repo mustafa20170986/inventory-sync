@@ -1,15 +1,10 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
-export class createbook {
+
+export class createuser {
   @IsNotEmpty()
   @IsString()
   name!: string;
   @IsNotEmpty()
-  @IsString()
-  author!: string;
-  @IsNotEmpty()
   @IsNumber()
-  pages!: number;
-  @IsNotEmpty()
-  @IsNumber()
-  instock!: number;
+  studentid!: number;
 }
