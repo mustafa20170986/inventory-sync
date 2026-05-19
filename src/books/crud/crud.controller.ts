@@ -9,4 +9,8 @@ export class CrudController {
   addbooks(@Body() dto: createbook) {
     return this.crudService.addbooks(dto);
   }
+  @Get('findallbooks')
+  findallbooks() {
+    return this.crudService.findallbooks();
+  }
 }

@@ -11,11 +11,17 @@ export class CrudService {
   ) {}
   //addbooks
   async addbooks(dto: createbook) {
-    const { name, pages, author } = dto;
+    const { name, pages, author, instock } = dto;
     return await this.bookModel.create({
       name,
       pages,
       author,
+      instock,
     });
+  }
+  //get all books
+  async findallbooks() {
+    const findbooks = await this.bookModel.find().exec();
+    return findbooks;
   }
 }
