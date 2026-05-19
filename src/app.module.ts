@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LibuserModule } from './libuser/libuser.module';
 import { BorrowbookModule } from './borrowbook/borrowbook.module';
+import { SubmitModule } from './submit/submit.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -21,6 +22,7 @@ import { BorrowbookModule } from './borrowbook/borrowbook.module';
     CrudModule,
     LibuserModule,
     BorrowbookModule,
+    SubmitModule,
   ],
   controllers: [AppController],
   providers: [AppService],
