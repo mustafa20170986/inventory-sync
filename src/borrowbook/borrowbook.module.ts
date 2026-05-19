@@ -4,12 +4,13 @@ import { BorrowbookService } from './borrowbook.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { borrowModel, borrowSchema } from 'src/schema/borrowed.schema';
 import { bookModel, bookSchema } from 'src/schema/books.schema';
-
+import { libModel, libuserSchema } from 'src/schema/libusr.schema';
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: borrowSchema.name, schema: borrowModel },
       { name: bookSchema.name, schema: bookModel },
+      { name: libuserSchema.name, schema: libModel },
     ]),
   ],
   controllers: [BorrowbookController],

@@ -13,4 +13,12 @@ export class BorrowbookController {
   getuserwhoborrow(@Body('bookname') bookname: string) {
     return this.borrowbookService.getuserwhoborrow(bookname);
   }
+  @Post('getuserbook')
+  findbook(@Body('name') name: string, @Body('studentid') studentid: number) {
+    return this.borrowbookService.finduserbook(name, studentid);
+  }
+  @Post('querybook')
+  finduserwhotakemanybook(@Body('bookscount') bookscount: number) {
+    return this.borrowbookService.finduserwhotakemanybook(bookscount);
+  }
 }
