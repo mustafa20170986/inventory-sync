@@ -11,5 +11,7 @@ export class bookSchema extends Document {
   pages!: number;
   @Prop({ required: true })
   instock!: number;
+  @Prop({ type: [String], required: true, default: [] })
+  catagory!: string[];
 }
 export const bookModel = SchemaFactory.createForClass(bookSchema);

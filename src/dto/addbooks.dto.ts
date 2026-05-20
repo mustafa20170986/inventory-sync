@@ -12,4 +12,7 @@ export class createbook {
   @IsNotEmpty()
   @IsNumber()
   instock!: number;
+  @IsNotEmpty()
+  @IsString({ each: true })
+  catagory!: string[];
 }
