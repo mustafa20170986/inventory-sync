@@ -27,4 +27,8 @@ export class CrudController {
     const catagory = exactcatagory ? exactcatagory.split(',') : [];
     return this.crudService.exactmatch(catagory);
   }
+  @Get('authorcombo')
+  async groupauthor() {
+    return this.crudService.groupauthor();
+  }
 }

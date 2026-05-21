@@ -54,4 +54,27 @@ export class CrudService {
       .select('name')
       .exec();
   }
+  //combine books by author and find
+  // how many copies are there
+  async groupauthor() {
+    return this.bookModel
+      .aggregate([
+        {
+          $group: {
+            _id: '$author',
+            totalstock: { $sum: '$instock' },
+            distinictbooks: { $sum: 1 },
+          },
+        },
+        {
+          $project: {
+            _id: 0,
+            author: '$_id',
+            totalstock: 1,
+            distinictbooks: 1,
+          },
+        },
+      ])
+      .exec();
+  }
 }
