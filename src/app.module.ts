@@ -1,14 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-//import { CrudController } from './books/crud/crud.controller';
-//import { CrudService } from './books/crud/crud.service';
-import { CrudModule } from './books/crud/crud.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { LibuserModule } from './libuser/libuser.module';
-import { BorrowbookModule } from './borrowbook/borrowbook.module';
-import { SubmitModule } from './submit/submit.module';
+import { AddinventoryModule } from './addinventory/addinventory.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,12 +13,10 @@ import { SubmitModule } from './submit/submit.module';
       useFactory: (configService: ConfigService) => ({
         uri: configService.get<string>('MONGO_URI'),
       }),
+
       inject: [ConfigService],
     }),
-    CrudModule,
-    LibuserModule,
-    BorrowbookModule,
-    SubmitModule,
+    AddinventoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
