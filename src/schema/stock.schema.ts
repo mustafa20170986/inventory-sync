@@ -8,6 +8,6 @@ export class stockSchema extends Document {
   @Prop({ required: true })
   price!: number;
   @Prop({ required: true })
-  intock!: number;
+  instock!: number;
 }
 export const stcokModel = SchemaFactory.createForClass(stockSchema);
