@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AddinventoryModule } from './addinventory/addinventory.module';
+import { SlaesModule } from './slaes/slaes.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AddinventoryModule } from './addinventory/addinventory.module';
 
       inject: [ConfigService],
     }),
+    SlaesModule,
     AddinventoryModule,
   ],
   controllers: [AppController],

@@ -15,4 +15,18 @@ export class AddinventoryService {
     const addprod = await this.stockModel.create(addto);
     return addprod.save();
   }
+  //sync (decrement stock)
+  async deductstoc(productId: string, quantityBy: number) {
+    const deductamount = -quantityBy;
+    const updatestock = await this.stockModel.findByIdAndUpdate(
+      productId,
+      {
+        $inc: { instock: deductamount },
+      },
+      { new: true },
+    );
+    if (!updatestock) {
+      throw new Error('failed to udpates the stock');
+    }
+  }
 }
