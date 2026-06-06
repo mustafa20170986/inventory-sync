@@ -15,7 +15,8 @@ export class SlaesService {
   async createsales(productId: string, quantity: number) {
     const productprice = await this.stockModel
       .findById(productId)
-      .select('price instock');
+      //added name in selection to get the name for analytics
+      .select('price instock productname');
     if (!productprice) {
       return { message: ' null product' };
     }
@@ -34,6 +35,13 @@ export class SlaesService {
       quantityBy: quantity,
     };
     this.rabbitClient.emit('reduce_stock', syncpayload);
+    //sending to analytics
+    const analyticspayload = {
+      total: total,
+      productname: productprice.productname,
+      quantityBy: quantity,
+    };
+    this.rabbitClient.emit('analytics_sync', analyticspayload);
     return newsales;
   }
 }
