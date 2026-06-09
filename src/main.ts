@@ -16,6 +16,17 @@ async function bootstrap() {
       },
     },
   });
+  app.connectMicroservice({
+    transport: Transport.RMQ,
+    options: {
+      urls: [process.env.CLOUDAMQP_URL || 'amqp://localhost:5672'],
+      queue: 'seller_notification_new',
+      queueOptions: {
+        durable: true,
+      },
+      noAck: true,
+    },
+  });
   await app.startAllMicroservices();
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT ?? 3000);

@@ -17,6 +17,7 @@ export class SellernotifyService {
     quantity: number,
     productname: string,
   ) {
+    console.log('event received');
     return this.sellernotificationModel.create({
       orderId,
       orderedcompany: orderedcompany,

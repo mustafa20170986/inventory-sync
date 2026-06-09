@@ -6,6 +6,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AddinventoryModule } from './addinventory/addinventory.module';
 import { SlaesModule } from './slaes/slaes.module';
 import { AnalyticsModule } from './analytics/analytics.module';
+import { OrderController } from './order/order.controller';
+import { OrderModule } from './order/order.module';
+import { SellernotifyController } from './sellernotify/sellernotify.controller';
+import { SellernotifyModule } from './sellernotify/sellernotify.module';
 
 @Module({
   imports: [
@@ -21,8 +25,13 @@ import { AnalyticsModule } from './analytics/analytics.module';
     SlaesModule,
     AddinventoryModule,
     AnalyticsModule,
+    OrderModule,
+    SellernotifyModule,
   ],
-  controllers: [AppController],
+  controllers: [
+    AppController,
+    // OrderController, SellernotifyController
+  ],
   providers: [AppService],
 })
 export class AppModule {}

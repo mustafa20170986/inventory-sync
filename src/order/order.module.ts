@@ -14,7 +14,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config'; // 🔴 Ensure you
       { name: stockSchema.name, schema: stcokModel },
     ]),
 
-    // 🔴 CONVERTED TO REGISTER_ASYNC
     ClientsModule.registerAsync([
       {
         name: 'SELLER_NOTIFICATION',

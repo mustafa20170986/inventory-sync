@@ -38,13 +38,14 @@ export class OrderService {
     });
     // make the payload and pulish in the seller notication queue
     const notificationpayload = {
-      orderId: makeorder._id,
+      orderId: makeorder._id.toString(),
       ordercompany: company,
       quantity: quantity,
       productname: findproduct.productname,
     };
     //emmit the event
-    this.client.emit({ route: 'seller_notification_new' }, notificationpayload);
+    console.log('emmiting event');
+    this.client.emit('seller_notification_new', notificationpayload);
     return makeorder;
   }
 }

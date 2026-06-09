@@ -12,8 +12,6 @@ import { SellernotifyController } from './sellernotify.controller';
     MongooseModule.forFeature([
       { name: sellernotificationSchmea.name, schema: sellernotificationModel },
     ]),
-
-    // 🔴 CONVERTED TO REGISTER_ASYNC
   ],
   providers: [SellernotifyService],
   controllers: [SellernotifyController],

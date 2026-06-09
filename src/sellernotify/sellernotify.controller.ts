@@ -4,10 +4,10 @@ import { EventPattern, Payload } from '@nestjs/microservices';
 
 @Controller('sellernotify')
 export class SellernotifyController {
-  constructor(
-    private readonly selelrnotificationService: SellernotifyService,
-  ) {}
-  @EventPattern({ route: 'seller_notification_new' })
+  constructor(private readonly selelrnotificationService: SellernotifyService) {
+    console.log('seller controller created');
+  }
+  @EventPattern('seller_notification_new')
   async sendnotification(
     @Payload()
     data: {
