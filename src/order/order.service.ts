@@ -48,4 +48,14 @@ export class OrderService {
     this.client.emit('seller_notification_new', notificationpayload);
     return makeorder;
   }
+  //get orders for seller
+  async getorder() {
+    return this.orderModel.find({ status: 'pending' });
+  }
+  //success the order
+  async makeconfirmord(orderId: string) {
+    return this.orderModel.findByIdAndUpdate(orderId, {
+      $set: { status: 'confirmed' },
+    });
+  }
 }

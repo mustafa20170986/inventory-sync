@@ -16,7 +16,7 @@ import { stcokModel, stockSchema } from 'src/schema/stock.schema';
     AddinventoryModule,
     ClientsModule.registerAsync([
       {
-        name: 'INVENTORY_SYNC',
+        name: 'RMQ_SERVICE',
         imports: [ConfigModule],
         useFactory: (ConfigService: ConfigService) => ({
           transport: Transport.RMQ,

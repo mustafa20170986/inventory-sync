@@ -24,7 +24,25 @@ async function bootstrap() {
       queueOptions: {
         durable: true,
       },
+      //noAck: true,
+    },
+  });
+  app.connectMicroservice({
+    transport: Transport.RMQ,
+    options: {
+      urls: [process.env.CLOUDAMQP_URL || 'amqp://localhost:5672'],
+      queue: 'buyer_notify', // 🧠 Must match the queue name in your Sales module!
       noAck: true,
+      queueOptions: { durable: true },
+    },
+  });
+  app.connectMicroservice({
+    transport: Transport.RMQ,
+    options: {
+      urls: [process.env.CLOUDAMQP_URL || 'amqp://localhost:5672'],
+      queue: 'order_queue',
+      noAck: true,
+      queueOptions: { durable: true },
     },
   });
   await app.startAllMicroservices();

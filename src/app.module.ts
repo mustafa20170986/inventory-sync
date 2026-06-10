@@ -10,6 +10,9 @@ import { OrderController } from './order/order.controller';
 import { OrderModule } from './order/order.module';
 import { SellernotifyController } from './sellernotify/sellernotify.controller';
 import { SellernotifyModule } from './sellernotify/sellernotify.module';
+import { ConrejorderModule } from './conrejorder/conrejorder.module';
+import { ByernotifyController } from './byernotify/byernotify.controller';
+import { ByernotifyModule } from './byernotify/byernotify.module';
 
 @Module({
   imports: [
@@ -27,9 +30,12 @@ import { SellernotifyModule } from './sellernotify/sellernotify.module';
     AnalyticsModule,
     OrderModule,
     SellernotifyModule,
+    ConrejorderModule,
+    ByernotifyModule,
   ],
   controllers: [
     AppController,
+    //ByernotifyController,
     // OrderController, SellernotifyController
   ],
   providers: [AppService],

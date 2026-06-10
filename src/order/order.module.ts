@@ -30,7 +30,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'; // 🔴 Ensure you
             queue: 'seller_notification_new',
             queueOptions: {
               durable: true,
-            },
+            },  
           },
         }),
       },

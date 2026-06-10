@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { OrderService } from './order.service';
+import { EventPattern, Payload } from '@nestjs/microservices';
 
 @Controller('order')
 export class OrderController {
@@ -13,5 +14,13 @@ export class OrderController {
       body.quantity,
       body.company,
     );
+  }
+  @Get('getorder')
+  getorder() {
+    return this.orderService.getorder();
+  }
+  @EventPattern('order_queue')
+  async confrimord(@Payload() data: { orderId: string }) {
+    return this.orderService.makeconfirmord(data.orderId);
   }
 }
