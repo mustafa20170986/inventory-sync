@@ -10,7 +10,6 @@ import { OrderController } from './order/order.controller';
 import { OrderModule } from './order/order.module';
 import { SellernotifyController } from './sellernotify/sellernotify.controller';
 import { SellernotifyModule } from './sellernotify/sellernotify.module';
-import { ConrejorderModule } from './conrejorder/conrejorder.module';
 import { ByernotifyController } from './byernotify/byernotify.controller';
 import { ByernotifyModule } from './byernotify/byernotify.module';
 
@@ -30,7 +29,6 @@ import { ByernotifyModule } from './byernotify/byernotify.module';
     AnalyticsModule,
     OrderModule,
     SellernotifyModule,
-    ConrejorderModule,
     ByernotifyModule,
   ],
   controllers: [
